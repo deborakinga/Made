@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+    }
+
+    .header button {
+      padding: 10px 20px;
+      background-color: lightgray;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .header button:hover {
+      background-color: gray;
+    }
+
+    .header .add-button {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: lightgray;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 36px;
+      margin-right: 20px;
+    }
+
+    .header .add-button:hover {
+      background-color: gray;
+    }
+
+    @media screen and (max-width: 720px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .header button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Made</h1>
+    <div>
+      <?php
+        session_start();
+        if(isset($_SESSION['user_id'])) {
+          echo '<a href="logout.php">Logout</a>';
+        } else {
+          echo '<a href="login.php">Login</a> | <a href="signup.php">Sign Up</a>';
+        }
+      ?>
+      <div class="add-button">+</div>
+    </div>
+  </header>
+</body>
+</html>
